@@ -1,7 +1,5 @@
 # NBA Team Statistics Analysis
 
-![NBA](https://upload.wikimedia.org/wikipedia/en/thumb/0/07/National_Basketball_Association_logo.svg/1200px-National_Basketball_Association_logo.svg.png)
-
 ## Overview
 
 This project involved a comprehensive analysis of NBA team statistics, focusing on factors affecting wins and championship performance. The analysis aimed to uncover insights into the evolving trends in NBA team performance over 21 seasons. 
