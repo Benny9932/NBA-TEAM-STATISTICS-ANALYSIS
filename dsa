@@ -1,0 +1,38 @@
+import time
+import hashlib
+import requests
+
+API_KEY = "123"
+SECRET_KEY = "123"
+USER_ID = "123"
+url = "https://cloud.rapsodo.com/api/v2/hits"
+
+# getting timestamp
+timestamp = str(int(time.time()))
+
+# making sha1 signature
+signature_string = SECRET_KEY + timestamp
+signature = hashlib.sha1(signature_string.encode()).hexdigest()
+
+# headers
+headers = {
+    "Authorization": f"ApiKey {API_KEY}",
+    "RapApi-Req-Timestamp": timestamp,
+    "RapApi-Req-Signature": signature,
+    "RapApi-Req-User": USER_ID,
+}
+
+params = {
+    "limit": 100,  
+    "page": 1      
+}
+
+# get request
+response = requests.get(url, headers=headers, params = params)
+
+# checking responses
+if response.status_code == 200:
+    data = response.json()  # Parse the JSON response
+    print(data)
+else:
+    print(f"Error: {response.status_code}, {response.text}")
